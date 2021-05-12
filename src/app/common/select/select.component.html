@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label>{{label}}</label>
+    <select class="form-control btn-pill digits">
+        <option value="0">Seleccionar</option>
+            <app-option [value]="op.id" [name]="op.name" *ngFor="let op of options"></app-option>
+    </select>
+  </div>

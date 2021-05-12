@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "packinfo.component.scss"
+    ],
+    "names": [],
+    "file": "packinfo.component.css"
+}

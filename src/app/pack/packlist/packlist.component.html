@@ -1,0 +1,4 @@
+<ng-container *ngFor="let pack of packs">
+    <app-pack [introduction]="pack.introduction" [packTitle]="pack.name" [packImg]="pack.image"
+        [materials]="pack.materials" [visits]="pack.visits" [created_at]="pack.created_at"></app-pack>
+</ng-container>

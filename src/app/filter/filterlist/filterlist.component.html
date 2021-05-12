@@ -1,0 +1,9 @@
+<div class="card height-equal">
+    <div class="card-header">Filtros</div>
+    <div class="card-body">
+            <app-select *ngFor="let f of filters" [label]="f.name" [options]="f.options"></app-select>
+    </div>
+    <div class="card-footer">
+    <app-btn [content]="btn['content']" [class]="btn['class']"></app-btn>
+    </div>
+</div>

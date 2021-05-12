@@ -1,0 +1,30 @@
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <ng-container *ngIf="packImg == 'null'; else elseBlock">
+        <app-img [src]="defaultImg" [alt]="packTitle" [title]="packTitle" [class]="image['class']"></app-img>
+      </ng-container>
+      <ng-template #elseBlock>
+        <div id="packImage">
+          <app-img [src]="packImg" [alt]="packTitle" [title]="packTitle" [class]="image['class']"></app-img>
+        </div>
+      </ng-template>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <!-- class="card-title" -->
+        <a href="#">
+          <app-title [size]=6 [content]="packTitle" [class]="title['class']"></app-title>
+        </a>
+        <div id="packInfo">
+          <p>Creado: {{created_at}}</p>
+          <p>Visitas: {{visits}}</p>
+          <p>Materiales: {{materials}}</p>
+        </div>
+        <ng-container *ngIf="introduction !== 'null'">
+          <p class="card-text"> {{introduction}}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
