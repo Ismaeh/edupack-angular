@@ -1,0 +1,42 @@
+<app-header #header></app-header>
+<br><br><br><br><br><br>
+<app-breadcrumbs *ngIf="breadcrumb" [routeFirst]="breadcrumb['routeFirst']" [first]="breadcrumb['first']"
+    [routePrev]="breadcrumb['routePrev']" [routePrev]="breadcrumb['routeFirst']" [prev]="breadcrumb['prev']"
+    [actual]="breadcrumb['actual']"></app-breadcrumbs>
+<div class="container">
+    <div class="row">
+        <div class="col-4" style="background-color: blueviolet;" id="packImages">
+            <p>asaschvajchvaschjh</p>
+        </div>
+        <div class="col-8" style="background-color: chartreuse;" id="packData">
+            <app-title [size]=5 [content]="pack['name']"></app-title>
+            <small>Creado el: {{pack['created_at']}}</small><small> {{pack['visits']}} visitas</small>
+            <div id="packDescription">
+                <p [ngClass]="{'limitTextHeight': isReadMore}">{{pack['description']}}</p>
+                <button type="button" class="btn btn-primary btn-sm" (click)="showText()">
+                    {{ isReadMore ? 'Leer más': 'Leer menos' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" (click)="changeResourceType('student')"
+                    (click)="getResourceByType()">ESTUDIANTE</a>
+                    <a class="nav-link" (click)="changeResourceType('teacher')"
+                    (click)="getResourceByType()">DOCENTE</a>
+                    <a class="nav-link" (click)="changeResourceType('digital')"
+                    (click)="getResourceByType()">DIGITAL</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="resources">
+        <app-resourceslist [resources]="resources"></app-resourceslist>
+    </div>
+</div>

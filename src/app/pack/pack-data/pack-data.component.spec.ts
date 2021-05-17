@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PackdetailsComponent } from './packdetails.component';
+import { PackDataComponent } from './pack-data.component';
 
-describe('PackdetailsComponent', () => {
-  let component: PackdetailsComponent;
-  let fixture: ComponentFixture<PackdetailsComponent>;
+describe('PackDataComponent', () => {
+  let component: PackDataComponent;
+  let fixture: ComponentFixture<PackDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PackdetailsComponent ]
+      declarations: [ PackDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PackdetailsComponent);
+    fixture = TestBed.createComponent(PackDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

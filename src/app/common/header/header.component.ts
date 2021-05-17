@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { PackService } from '@services/packs/pack.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   image = {'src':'assets/img/santillana_logo.svg',
   'alt':'Santillana',
   'title':'Santillana',
-  'class':''};
+  'class':'headerLogo'};
   icon_class:string = 'search';
   options= 
   [
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   page:number = 1; 
   order_by:string = "order"; 
   direction:string = "desc";
-  packs;
+  @Output() packs = new EventEmitter<any>();
 
   constructor(private packService: PackService) { }
 
@@ -35,13 +35,11 @@ export class HeaderComponent implements OnInit {
     this.packService.getPacksByName(name, this.per_page,this.page,this.order_by,this.direction).subscribe(
       (response) => {
         console.log('response received')
-        this.packs = response['data'];
-        console.log(this.packs)
+        this.packs.emit(response);
       },
       (error) => {
         console.error('Request failed with error');
         console.error(error);
-        // this.loading = false;
       }
     )
   }

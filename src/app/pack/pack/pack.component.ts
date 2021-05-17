@@ -18,6 +18,9 @@ export class PackComponent implements OnInit {
   @Input() visits:number;
   @Input() materials:number;
   @Input() created_at:string;
+  @Input() slug:string;
+  @Input() id:number;
+
   defaultImg:string = '../../assets/img/packDefault.jpg';
 
   constructor() { }

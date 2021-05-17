@@ -1,1 +1,4 @@
-<p>resourceslist works!</p>
+<div class="row">
+    <app-resources *ngFor="let item of resources" [name]="item.name" [resource]="item.resource" [image]="item.image" class="col-3">
+    </app-resources>
+</div>

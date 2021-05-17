@@ -2,6 +2,6 @@
     <label>{{label}}</label>
     <select class="form-control btn-pill digits">
         <option value="0">Seleccionar</option>
-            <app-option [value]="op.id" [name]="op.name" *ngFor="let op of options"></app-option>
+            <option value="{{op.id}}" *ngFor="let op of options">{{op.name}}</option>
     </select>
   </div>

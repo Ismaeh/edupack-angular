@@ -1,14 +1,15 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
+<div class="container-fluid fixed-top" id="header">
+    <div id="logo">
+        <a [routerLink]="['/home']">
             <app-img [src]="image['src']" [alt]="image['alt']" [title]="image['title']" [class]="image['class']"></app-img>
-        </div>
-        <div class="col-7"></div>
-        <div class="col-3">
-            <label for="search">
-                <app-icon [class]="icon_class"></app-icon>
-            </label>
-            <app-search (newValueEvent)="getPacksByName($event)"></app-search>
-        </div>
+        </a>
     </div>
+    <div id="search">
+        <label for="search">
+            <app-icon [class]="icon_class"></app-icon>
+        </label>
+        <app-search (newValueEvent)="getPacksByName($event)"></app-search>
+    </div>
+
+
 </div>

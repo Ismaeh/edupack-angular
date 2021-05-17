@@ -1,13 +1,32 @@
-.packImage{
-    width: 30px;
+.packImgContainer
+{
+    display:flex;
+    justify-content: center;
 }
-a{
+a
+{
     text-decoration: none;
 }
 
-#packInfo
+.packInfo
 {
-    p{
-        
+    p
+    {
+        color: rgb(180, 180, 180);
+        font-size: small;
+        margin-bottom: 0px;
     }
+}
+
+p.packIntro
+{
+    margin: 0 20px;
+    font-size: 90%;
+    width:fit-content;
+}
+
+.packCard
+{
+    border-radius:10px;
+    box-shadow: rgb(5, 137, 224);
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  constructor() { }
+  @Input() actual;
+  @Input() prev;
+  @Input() first;
+  @Input() routePrev;
+  @Input() routeFirst;
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  redirectToRoute(route)
+  {
+    this.router.navigate(route)
+  }
 }

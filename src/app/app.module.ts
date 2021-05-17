@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ImgComponent } from './common/img/img.component';
 import { SelectComponent } from './common/select/select.component';
-import { OptionComponent } from './common/option/option.component';
 import { BtnComponent } from './common/btn/btn.component';
 import { IconComponent } from './common/icon/icon.component';
 import { InputComponent } from './common/input/input.component';
@@ -21,19 +20,20 @@ import { PackinfoComponent } from './pack/packinfo/packinfo.component';
 import { TextComponent } from './common/text/text.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { BreadcrumbsComponent } from './common/breadcrumbs/breadcrumbs.component';
-import { PackdetailsComponent } from './pack/packdetails/packdetails.component';
 import { InfoComponent } from './info/info.component';
 import { ResourcesComponent } from './resource/resources/resources.component';
 import { NavComponent } from './common/nav/nav.component';
 import { ResourceslistComponent } from './resource/resourceslist/resourceslist.component';
 import { FilterService } from '@services/filters/filter.service';
+import { IndexComponent } from './pages/index/index/index.component';
+import { PackDetailsComponent } from './pages/packDetails/pack-details/pack-details.component';
+import { PackDataComponent } from './pack/pack-data/pack-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImgComponent,
     SelectComponent,
-    OptionComponent,
     BtnComponent,
     IconComponent,
     TitleComponent,
@@ -48,11 +48,13 @@ import { FilterService } from '@services/filters/filter.service';
     TextComponent,
     PaginationComponent,
     BreadcrumbsComponent,
-    PackdetailsComponent,
     InfoComponent,
     ResourcesComponent,
     NavComponent,
     ResourceslistComponent,
+    IndexComponent,
+    PackDetailsComponent,
+    PackDataComponent,
   ],
   imports: [
     BrowserModule,

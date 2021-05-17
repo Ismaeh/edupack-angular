@@ -1,1 +1,7 @@
-<p>breadcrumbs works!</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="routeFirst" (click)="redirectToRoute(routeFirst)">{{first}}</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="routePrev" (click)="redirectToRoute(routePrev)">{{prev}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{actual}}</li>
+    </ol>
+  </nav>

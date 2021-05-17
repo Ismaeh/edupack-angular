@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './common/header/header.component';
+import { IndexComponent } from '@pages/index/index/index.component';
+import { PackDetailsComponent } from '@pages/packDetails/pack-details/pack-details.component';
 
 const routes = [
-  { path: 'header', component: HeaderComponent},
+  { path: 'home', component: IndexComponent},
+  { path: 'pack/:slug/:id', component: PackDetailsComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '**', }
 ]
 
 @NgModule({

@@ -1,7 +1,7 @@
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3 packCard" style="max-width: 540px;">
   <div class="row g-0">
-    <div class="col-md-4">
-      <ng-container *ngIf="packImg == 'null'; else elseBlock">
+    <div class="col-md-4 packImgContainer">
+      <ng-container *ngIf="!packImg; else elseBlock">
         <app-img [src]="defaultImg" [alt]="packTitle" [title]="packTitle" [class]="image['class']"></app-img>
       </ng-container>
       <ng-template #elseBlock>
@@ -13,18 +13,18 @@
     <div class="col-md-8">
       <div class="card-body">
         <!-- class="card-title" -->
-        <a href="#">
+        <a [routerLink]="['/pack/',slug,id]"> 
           <app-title [size]=6 [content]="packTitle" [class]="title['class']"></app-title>
         </a>
-        <div id="packInfo">
-          <p>Creado: {{created_at}}</p>
-          <p>Visitas: {{visits}}</p>
-          <p>Materiales: {{materials}}</p>
+        <div class="packInfo">
+          <p>Creado: <strong>{{created_at}}</strong></p>
+          <p>Visitas: <strong>{{visits}}</strong></p>
+          <p>Materiales: <strong>{{materials}}</strong></p>
         </div>
-        <ng-container *ngIf="introduction !== 'null'">
-          <p class="card-text"> {{introduction}}</p>
-        </ng-container>
       </div>
     </div>
+    <ng-container *ngIf="introduction">
+      <p class="card-text" class="packIntro"> {{introduction}}</p>
+    </ng-container>
   </div>
 </div>

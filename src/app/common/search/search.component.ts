@@ -12,6 +12,14 @@ export class SearchComponent implements OnInit {
     'class':'form-control',
     'name' : 'search'
   };
+
+  btn = {
+    'class':'btn btn-primary'
+  }
+
+  icon = {
+    'class':'fas fa-search'
+  }
   @Output() newValueEvent = new EventEmitter<string>()
 
   constructor() { }

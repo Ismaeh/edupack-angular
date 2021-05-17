@@ -13,7 +13,6 @@ export class SelectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.options)
   }
 
 }

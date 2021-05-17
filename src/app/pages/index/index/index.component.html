@@ -1,0 +1,14 @@
+<app-header #header (packs)="getPacksByName($event)"></app-header>
+<div id="banner">
+    <app-img [src]="image['src']" [alt]="image['alt']" [class]="image['class']"></app-img>
+</div>
+<div class="container" id="main-content">
+    <div class="row">
+        <div class="col-5">
+            <app-filterlist></app-filterlist>
+        </div>
+        <div class="col-7">
+            <app-packlist #packList [packs]="packs" [pages]="pages"></app-packlist>
+        </div>
+    </div>
+</div>

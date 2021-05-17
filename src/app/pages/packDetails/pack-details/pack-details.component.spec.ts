@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OptionComponent } from './option.component';
+import { PackDetailsComponent } from './pack-details.component';
 
-describe('OptionComponent', () => {
-  let component: OptionComponent;
-  let fixture: ComponentFixture<OptionComponent>;
+describe('PackDetailsComponent', () => {
+  let component: PackDetailsComponent;
+  let fixture: ComponentFixture<PackDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OptionComponent ]
+      declarations: [ PackDetailsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OptionComponent);
+    fixture = TestBed.createComponent(PackDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
