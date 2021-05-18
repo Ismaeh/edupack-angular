@@ -1,15 +1,13 @@
 <nav aria-label="Page navigation">
   <ul class="pagination justify-content-center">
     <li class="page-item">
-      <a (click)="getNewPage(previous['url'])" class="page-link">Anterior</a>
+      <a *ngIf="(actualPage-1) > 0" (click)="getNewPage(actualPage-1)" class="page-link">Anterior</a>
     </li>
-    <ng-container *ngFor="let page of pages">
-      <li class="page-item">
-        <a (click)="getNewPage(page.url)" class="page-link">{{page.label}}</a>
-      </li>
-    </ng-container>
+    <li class="page-item" *ngFor="let page of pages">
+      <a (click)="getNewPage(page)" class="page-link">{{ page }}</a>
+    </li>
     <li class="page-item">
-      <a (click)="getNewPage(next['url'])" class="page-link">Siguiente</a>
+      <a *ngIf="(actualPage+1) <= pages.length" (click)="getNewPage(actualPage+1)" class="page-link">Siguiente</a>
     </li>
   </ul>
 </nav>

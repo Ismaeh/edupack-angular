@@ -21,9 +21,9 @@ export class IndexComponent implements OnInit {
     
   }
 
-  getPacksByName(e)
+  getPacks(e)
   {
     this.packs = e['data']
-    this.pages = e['meta']['links']
+    this.pages = e['meta']
   }
 }

@@ -1,9 +1,9 @@
 <div class="card height-equal">
     <div class="card-header">Filtros</div>
     <div class="card-body">
-            <app-select *ngFor="let f of filters" [label]="f.name" [options]="f.options"></app-select>
+            <app-select *ngFor="let f of filters; index as i" [label]="f.name" [options]="f.options" (newOptionEvent)="getOptions($event)" [id]="'filter_'+i"></app-select>
     </div>
     <div class="card-footer">
-    <app-btn [content]="btn['content']" [class]="btn['class']"></app-btn>
+    <app-btn [content]="btn['content']" [class]="btn['class']" (click)="getPacksByFilters()"></app-btn>
     </div>
 </div>

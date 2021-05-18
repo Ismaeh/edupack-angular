@@ -1,7 +1,7 @@
-<ng-container *ngFor="let pack of packs">
-    <app-pack [introduction]="pack.introduction" [packTitle]="pack.name" [packImg]="pack.image"
-        [materials]="pack.materials" [visits]="pack.visits" [created_at]="pack.created_at"
-        [slug]="pack.slug"
-        [id]="pack.id"></app-pack>
-</ng-container>
-<app-pagination (newPageEvent)="getPacksByPage($event)" [pages]="pages"></app-pagination>
+<app-pack *ngFor="let pack of packs" [introduction]="pack.introduction" [packTitle]="pack.name" [packImg]="pack.image"
+    [materials]="pack.materials" [visits]="pack.visits" [created_at]="pack.created_at" [slug]="pack.slug"
+    [id]="pack.id">
+</app-pack>
+<app-pagination *ngIf="isLoaded" (newPageEvent)="getPageNew($event)" [startPage]="pages.from"
+    [finishPage]="pages.last_page" [actualPage]="pages.current_page">
+</app-pagination>

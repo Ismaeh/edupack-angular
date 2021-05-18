@@ -1,14 +1,13 @@
 <app-header #header></app-header>
 <br><br><br><br><br><br>
-<app-breadcrumbs *ngIf="breadcrumb" [routeFirst]="breadcrumb['routeFirst']" [first]="breadcrumb['first']"
-    [routePrev]="breadcrumb['routePrev']" [routePrev]="breadcrumb['routeFirst']" [prev]="breadcrumb['prev']"
-    [actual]="breadcrumb['actual']"></app-breadcrumbs>
-<div class="container">
+<app-breadcrumbs *ngIf="breadcrumb" [routeFirst]="breadcrumb.routeFirst" [first]="breadcrumb.first"
+    [routePrev]="breadcrumb.routePrev" [prev]="breadcrumb.prev" [actual]="breadcrumb.actual"></app-breadcrumbs>
+<div class="container" *ngIf="isLoaded; else elsePack">
     <div class="row">
-        <div class="col-4" style="background-color: blueviolet;" id="packImages">
-            <p>asaschvajchvaschjh</p>
+        <div class="col-4" id="packImages" style="background-color: rgb(233, 232, 232);">
+            <app-img [src]="image.src" [alt]="image.alt" [title]="image.title" [class]="image.class"></app-img>
         </div>
-        <div class="col-8" style="background-color: chartreuse;" id="packData">
+        <div class="col-8" style="background-color: rgb(204, 204, 204);" id="packData">
             <app-title [size]=5 [content]="pack['name']"></app-title>
             <small>Creado el: {{pack['created_at']}}</small><small> {{pack['visits']}} visitas</small>
             <div id="packDescription">
@@ -20,6 +19,12 @@
         </div>
     </div>
 </div>
+<ng-template #elsePack>
+    <div id="loadingPack" class="container">
+        <div class="spinner-border text-primary" role="status">
+        </div>   
+    </div>
+</ng-template>
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,16 +32,21 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" (click)="changeResourceType('student')"
-                    (click)="getResourceByType()">ESTUDIANTE</a>
+                        (click)="getResourceByType()">ESTUDIANTE</a>
                     <a class="nav-link" (click)="changeResourceType('teacher')"
-                    (click)="getResourceByType()">DOCENTE</a>
+                        (click)="getResourceByType()">DOCENTE</a>
                     <a class="nav-link" (click)="changeResourceType('digital')"
-                    (click)="getResourceByType()">DIGITAL</a>
+                        (click)="getResourceByType()">DIGITAL</a>
                 </div>
             </div>
         </div>
     </nav>
-    <div id="resources">
+    <div id="resources" *ngIf="isLoadedResources && resources; else elseBlock">
         <app-resourceslist [resources]="resources"></app-resourceslist>
     </div>
+    <ng-template #elseBlock>
+        <div>
+            No existen recursos de este tipo
+        </div>
+    </ng-template>
 </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PackService } from '@services/packs/pack.service';
 
 @Component({
   selector: 'app-pack',
@@ -7,25 +8,29 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PackComponent implements OnInit {
   image = {
-    'class':'packImage'
+    'class': 'packImage'
   }
   title = {
-    'class':'packTitle'
+    'class': 'packTitle'
   }
-  @Input() introduction:string;
-  @Input() packTitle:string;
-  @Input() packImg:string;
-  @Input() visits:number;
-  @Input() materials:number;
-  @Input() created_at:string;
-  @Input() slug:string;
-  @Input() id:number;
+  @Input() introduction: string;
+  @Input() packTitle: string;
+  @Input() packImg: string;
+  @Input() visits: number;
+  @Input() materials: number;
+  @Input() created_at: string;
+  @Input() slug: string;
+  @Input() id: number;
 
-  defaultImg:string = '../../assets/img/packDefault.jpg';
+  defaultImg: string = '../../assets/img/packDefault.jpg';
 
-  constructor() { }
+  constructor(private packService: PackService) { }
 
   ngOnInit(): void {
   }
 
+  addVisit() {
+    console.log(typeof(this.id)) 
+    this.packService.addVisits(this.id).subscribe()
+  }
 }

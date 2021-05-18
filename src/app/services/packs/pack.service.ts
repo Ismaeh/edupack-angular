@@ -22,7 +22,7 @@ export class PackService {
 
   getPacksByFilters(options:any,per_page:number, page:number, order_by:string, direction:string)
   {
-    return this.http.get(environment.baseUrlService+"?per_page="+ per_page 
+    return this.http.get(environment.baseUrlService+"packs/findByFilters?per_page="+ per_page 
     +"&page=" +page+"&order_by="+order_by+ "&direction="+direction+"&filter_1="+options[0]+"&filter_2="+options[1]+"&filter_3="
     +options[2]+"&filter_4="+options[3])
   }
@@ -37,4 +37,8 @@ export class PackService {
     return this.http.get(url+ "&per_page="+ per_page +"&order_by="+order_by+ "&direction="+direction)
   }
 
+  addVisits(packId: number)
+  {
+    return this.http.put(environment.baseUrlService+"pack/addvisit/"+packId, '')
+  }
 }

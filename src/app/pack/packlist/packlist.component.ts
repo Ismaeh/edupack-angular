@@ -7,40 +7,40 @@ import { PackService } from '@services/packs/pack.service';
   styleUrls: ['./packlist.component.scss']
 })
 export class PacklistComponent implements OnInit {
-  per_page:number = 5;
-  @Input() page:number = 1; 
-  order_by:string = "order"; 
-  direction:string = "desc";
+  per_page: number = 5;
+  page: number = 1;
+  order_by: string = "order";
+  direction: string = "desc";
   @Input() packs;
   @Input() pages;
+  isLoaded: boolean = false;
 
-  constructor(private packService:PackService) { }
+  constructor(private packService: PackService) { }
 
   ngOnInit(): void 
   {
-    this.packService.getAllPacks(this.per_page,this.page,this.order_by,this.direction).subscribe(
-        (response) => {
-          this.packs = response['data'];
-          this.pages = response['meta']['links'];
-        },
-        (error) => {
-          console.error('Request failed with error');
-          console.error(error);
-        }
-      )
-    }
+    this.getPackPerPage(this.page);
+  }
 
-    getPacksByPage(pageUrl:string)
-    {
-      this.packService.getNewPage(pageUrl,this.per_page,this.order_by,this.direction).subscribe(
-        (response) => {
-          this.packs = response['data'];
-        },
-        (error) => {
-          console.error('Request failed with error');
-          console.error(error);
-        }
-      )
-    }
+  getPackPerPage(page: number)
+  {
+    this.packService.getAllPacks(this.per_page, page, this.order_by, this.direction).subscribe(
+      (res) => {
+        console.log(res);
+        this.packs = res['data'];
+        this.pages = res['meta'];
+        this.isLoaded = true;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  getPageNew(pageUrl:number)
+  {
+    this.getPackPerPage(pageUrl);
+    console.log(this.pages)
+  }
 
 }

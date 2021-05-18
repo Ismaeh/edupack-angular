@@ -1,6 +1,6 @@
 <div class="form-group">
     <label>{{label}}</label>
-    <select class="form-control btn-pill digits">
+    <select #filter id="{{id}}" class="form-control btn-pill digits" (change)="selectNewOption(filter.value,filter.id)">
         <option value="0">Seleccionar</option>
             <option value="{{op.id}}" *ngFor="let op of options">{{op.name}}</option>
     </select>

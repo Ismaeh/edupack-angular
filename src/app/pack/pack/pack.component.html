@@ -13,7 +13,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <!-- class="card-title" -->
-        <a [routerLink]="['/pack/',slug,id]"> 
+        <a [routerLink]="['/pack/',slug,id]" (click)="addVisit()"> 
           <app-title [size]=6 [content]="packTitle" [class]="title['class']"></app-title>
         </a>
         <div class="packInfo">
